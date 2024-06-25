@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+{% load static %} 
+{% static "images" as baseUrl %}
+
+<html class="home blog no-js" lang="en-US">
+  <head>
+    <title>Charitha </title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+ 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="{%  static 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %}"
+      type="text/css"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'https://fonts.googleapis.com/css?family=Amatic+SC%3A400%2C700%7CLato%3A400%2C700%2C400italic%2C700italic&amp;ver=4.9.8'%}"
+      type="text/css"
+      media="screen"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'style.css' %}"
+      type="text/css"
+      media="screen"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'print.css'%}"
+      type="text/css"
+      media="print"
+    />
+    
+    <script src="{% static 'js/jquery-3.0.0.min.js' %}"></script>
+    <script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
+    
+    <style>
+      #c1{
+        color:aliceblue;
+      }
+    </style>
+
+  </head>
+  <body class="home sticky-menu sidebar-off" id="top">
+    <header class="row">
+ 
+      <!-- navbar-->
+      <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color:rgb(246, 165, 208);">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+           
+          </div>
+          <div class="collapse navbar-collapse" id="mainNavBar">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a  id="c1" > <span class="glyphicon glyphicon-phone" id="c1"></span>Contact</a></li>
+   
+              {% if user.is_authenticated %}
+              <li><a href="{% url "login" %}" id="c1"><span class="glyphicon glyphicon-log-in" id="c1">Login </span></a></li>
+              {% else %}
+              <li><a href="{% url "register" %}" id="c1"><span class="glyphicon glyphicon-user" id="c1"></span>   Sign up</a></li>
+              <li><a href="{% url "login" %}" id="c1"><span class="glyphicon glyphicon-log-in" id="c1" ></span>   Log in </a></li>
+              {% endif %}
+    
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <br/>
+    <br>
+  <br>
+  <br>
+  <div class="row">
+    {% block start %}
+    {% if user.is_authenticated %}
+    <center><h1>welcome!! </h1></center>
+    {% else %}
+    <center><h4 style="font-family: cursive;font-size:large;color:rgb(231, 10, 161)">"Greetings from the heart of our blog - where curiosity meets knowledge!"</h4></center>
+    {% endif %}
+    {% endblock %}
+  </div>
+    <header class="header">
+      <div class="header-wrap">
+        <div class="logo plain logo-left">
+          <div class="site-title">
+            <a href="index.html" title="Go to Home"></a>
+          </div>
+        </div>
+        <!-- /logo -->
+
+        <nav id="nav" role="navigation">
+          <div class="table">
+            <div class="table-cell">
+              <ul id="menu-menu-1">
+                <li class="menu-item">
+                  <a href="index.html">Home</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <a href="#nav" class="menu-trigger"><i class="fa fa-bars"></i></a>
+
+        <a href="{% static '#topsearch' %}" class="search-trigger"
+          ><i class="fa fa-search"></i
+        ></a>
+      </div>
+    </header>
+
+    <div
+      class="hero"
+      style="background-image: url('static/images/bg.jpg'); text-align:right;"
+    >
+      <div class="hero-inner">
+        <div class="inner">
+          <h1><span class="border border-top border-bottom">Cherrie</span></h1>
+          <div class="hero-line-one"></div>
+          <div class="hero-line-two">
+            <span class="border border-bottom"
+              ><a href="{% static 'https://freehtml5.co' %}" style="color: #fff"
+                >Believe in Time</a
+              ></span
+            >
+          </div>
+        </div>
+
+        <a class="more-arrow" href="{% static '#content' %}"
+          ><i class="fa fa-chevron-down"></i><span>Scroll Down</span></a
+        >
+      </div>
+    </div>
+    <div class="footer-widgets widget-count-4">
+      <div class="wrap">
+        <div class="mt-about-you-widget">
+          <div class="widget footer">
+            <img
+              class="mt-about-avatar"
+              src="{% static 'images/dp.jpg' %}"
+              alt="Clare Itsy"
+            />
+
+            <h4>Charitha</h4>
+
+            <div class="mt-about-bio">
+              <p>
+                Hi, my name is Charitha.Busy with routine life but make sure to
+                enjoy my life with little things.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="widget footer">
+          <h4>Recent Posts</h4>
+          <ul>
+            <li>
+              <a href="#">RCB</a>
+            </li>
+            <li>
+              <a href="#">Ice-cream</a>
+            </li>
+            <li>
+              <a href="#">BTS</a>
+            </li>
+            <li>
+              <a href="#">The Flowers</a>
+            </li>
+            <li>
+              <a href="#">Sunset hours</a>
+            </li>
+          </ul>
+        </div>
+        <div class="widget footer">
+          <h4>Gallery</h4>
+          <div class="textwidget">
+            <img src="{% static 'images/gallery2.jpg' %}" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-wrap">
+        <div id="footer-text">
+          &copy; 2018 . Designed by
+          <a href="{% static 'https://freehtml5.co' %}" target="_blank"
+            >FreeHTML5</a
+          >.
+        </div>
+
+        <a href="{% static '#top' %}" id="btt"
+          >Top <i class="fa fa-chevron-up"></i
+        ></a>
+      </div>
+    </footer>
+
+    <div id="topsearch">
+      <div class="table">
+        <div class="table-cell">
+          <form
+            role="search"
+            method="get"
+            class="searchform"
+            action="index.html"
+          >
+            <div>
+              <input
+                type="text"
+                value=""
+                name="s"
+                class="s"
+                placeholder="Type and hit enter"
+              />
+              <input type="submit" class="searchsubmit" value="Search" />
+            </div>
+          </form>
+        </div>
+      </div>
+      <a href="{% static '#topsearch' %}" class="search-trigger"
+        ><i class="fa fa-times"></i
+      ></a>
+    </div>
+
+    <script>
+      var ie9 = false;
+
+    </script>
+    <!--[if lte IE 9]>
+      <script>
+        var ie9 = true;
+      </script>
+    <![endif]-->
+    <script src="{% static 'js/global-plugins.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script>
+    const contactText = document.getElementById('c1');
+
+    // Add a click event listener to the contactText element
+    contactText.addEventListener('click', function() {
+        alert('Call-1800 2340 2922');});
+    </script>
+  </body>
+</html>
