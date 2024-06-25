@@ -1,0 +1,228 @@
+{% load static %}
+{% static "styles.css" %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sub web page and Charitha</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css">
+
+    <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css" media="screen" />
+    <link rel="stylesheet" href="{% static 'print.css' %}" type="text/css" media="print" />
+
+    <script src="{% static 'js/jquery-3.0.0.min.js' %}"></script>
+    <script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
+
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <style>
+        .hyd {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: medium;
+            color: black;
+            line-height: 35px;
+            padding-right: 250px;
+        }
+        img {
+            max-width: 100%;
+        }
+        #c1 {
+            color: aliceblue;
+        }
+        .no-gap {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body class="home sticky-menu sidebar-off" id="top">
+
+    <header class="row">
+        <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: rgb(246, 165, 208)">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="mainNavBar">
+                    <ul class="nav navbar-nav navbar-right">
+                        {% if user.is_authenticated %}
+                        <li>
+                            <a href="{% url 'index' %}" id="c1">
+                                <span class="glyphicon glyphicon-log-out" id="c1">Logout</span>
+                            </a>
+                        </li>
+                        {% else %}
+                        <li>
+                            <a href="{% url 'register' %}" id="c1">
+                                <span class="glyphicon glyphicon-user" id="c1"></span> Sign up
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'login' %}" id="c1">
+                                <span class="glyphicon glyphicon-log-in" id="c1"></span> Log in
+                            </a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <br /><br /><br /><br />
+
+    <div class="row">
+        {% block start %} 
+        {% if user.is_authenticated %}
+        <center style="color: black"><h1>Welcome {{user.username}}!</h1></center><br>
+        {% else %}
+        <center><h1>Welcome Guest!</h1></center>
+        {% endif %}
+        {% endblock %}
+        <center>
+            <h4 style="font-family: cursive; font-size: large; color: rgb(231, 10, 161);">
+                "Greetings from the heart of our blog - where curiosity meets knowledge!"
+            </h4>
+        </center>
+    </div><br>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#slider1').slick({
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 2000,
+            });
+        });
+
+        function myFunction() {
+            var dots = document.getElementById("dots");
+            var moreText = document.getElementById("more");
+            var btnText = document.getElementById("myBtn");
+
+            if (dots.style.display === "none") {
+                dots.style.display = "inline";
+                btnText.innerHTML = "Read more"; 
+                moreText.style.display = "none";
+            } else {
+                dots.style.display = "none";
+                btnText.innerHTML = "Read less"; 
+                moreText.style.display = "inline";
+            }
+        }
+      </script>
+         <script>
+          var ie9 = false;
+         </script>
+        <script src="{% static 'js/global-plugins.min.js' %}"></script>
+       
+    <div
+      class="hero"
+      style="background-image: url('/static/images/bg.jpg'); text-align:right;"
+    >
+
+        <div class="hero-inner">
+            <div class="inner">
+                <h1><span class="border border-top border-bottom">Cherrie</span></h1>
+                <div class="hero-line-one"></div>
+                <div class="hero-line-two">Believe in Time</div>
+            </div>
+        </div>
+    </div><br><br><br><br><br><br><br>
+ <div class="container">
+        <h1 style="align-items: center;font-family:cursive;color:rgb(242, 5, 163)">"My fav Moments"</h1>
+        <div class="hyd">
+            <p>Basking in the golden hues of sunset hours,
+                I find serenity in the day’s final light. 
+                Indulging in creamy, cool ice cream, each bite is a sweet escape from the mundane.
+                Strolling along the beach, the rhythmic waves and soft sand bring an unmatched sense of calm.
+                Cheering for the RCB IPL team, the thrill of each match fills me with excitement and pride. 
+                <span id="dots">...</span><span id="more">
+                Listening to BTS's music, their lyrics and melodies, always uplifts my spirit and inspires me.
+                These moments, from nature's beauty to simple pleasures and passionate sports, weave joy into the fabric of my days.
+                Each sunset, each scoop, each wave, and each game reminds me of life's vibrant spectrum.
+                These favorite moments are the highlights that brighten my world.
+                </span></p>
+            <button onclick="myFunction()" id="myBtn" style="background-color:rgb(250, 170, 225);color:azure;border-radius:25px;">Read more</button>
+        </div>
+        <br><br><br><br><br><br><br>
+
+        <div class="slider" id="slider1" style="height: 400px;">
+            <div><h4 style="color: rgb(139, 7, 139);">Ice-Cream</h4><img src="{% static 'images/ice.jpg' %}" alt="Ice-Cream" width="320px" height="200px"></div>
+            <div><h4 style="color: rgb(139, 7, 139);">BTS</h4><img src="{% static 'images/bts1.jpg' %}" alt="BTS" width="320px" height="200px"></div>
+            <div><h4 style="color:rgb(139, 7, 139);">RCB</h4><img src="{% static 'images/vk3.jpg' %}" alt="RCB" width="320px" height="200px"></div>
+            <div><h4 style="color: rgb(139, 7, 139);">Sunset hours</h4><img src="{% static 'images/sun4.jpg' %}" alt="Sunset hours" width="320px" height="200px"></div>
+            <div><h4 style="color: rgb(139, 7, 139);">Music</h4><img src="{% static 'images/music1.jpg' %}" alt="Music" width="320px" height="200px"></div>
+            <div><h4 style="color: rgb(139, 7, 139);">Flowers</h4><img src="{% static 'images/flower3.jpg' %}" alt="Flowers" width="320px" height="200px"></div>
+            <div><h4 style="color:rgb(139, 7, 139);">Beach</h4><img src="{% static 'images/beach6.jpeg' %}" alt="Beach" width="320px" height="290px"></div>
+        </div>
+    <div class="container content-section no-gap">
+     <h2 style="text-align: center; color:deeppink;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">A poem About my Moments</h2><br>
+     <div style="text-align:center;">
+      <p style="font-size:x-large;color:black;font-family:cursive;"> A tranquil reminder of the day's end, a moment to think,<br>
+      The joy of ice cream on a sunny afternoon,<br>
+      Sweet and cool, melting too soon <br>
+      Beaches with their endless stretch of sand,<br>
+      Waves kissing the shore, a scene so grand <br>
+      Cheering for RCB in the IPL's thrilling chase,<br>
+      Every victory a reason to celebrate, hearts race <br>
+</p>
+
+</div>
+    </div>
+  </div>
+  <div style="text-align: center;color:deeppink">
+  <a href="{% url "crude" %}">Spread joy with a click—share your feel-good posts.</a>
+</div>
+<center> <a href="{%url 'postindex' %}">To See Our Posts</a></center>
+    <div class="footer-widgets widget-count-4">
+      <div class="wrap">
+        <div class="mt-about-you-widget">
+          <div class="widget footer">
+            <img
+              class="mt-about-avatar"
+              src="{% static 'images/dp.jpg' %}"
+              alt="Clare Itsy"
+            />
+            <h4>Charitha</h4>
+            <div class="mt-about-bio">
+              <p>
+                Hi, my name is Charitha. Busy with routine life but make
+                sure to enjoy my life with little things.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="widget footer">
+          <h4>Recent Posts</h4>
+          <ul>
+            <li><a href="#">RCB</a></li>
+            <li><a href="#">Ice-cream</a></li>
+            <li><a href="#">BTS</a></li>
+            <li><a href="#">The Flowers</a></li>
+            <li><a href="#">Sunset hours</a></li>
+          </ul>
+        </div>
+        <div class="row social" style="text-align: right;">
+          <h6 style="text-align: right;">follow me </h6>
+          <a href="#" class="fa fa-facebook"></a>
+          <a href="#" class="fa fa-instagram"></a>
+          <a href="#" class="fa fa-youtube"></a>
+          <a href="#" class="fa fa-twitter"></a>
+      </div>
+</body>
+</html>
