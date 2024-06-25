@@ -81,12 +81,13 @@ WSGI_APPLICATION = 'firstd.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'telusko',
-        'USER' :'postgres',
-        'PASSWORD': 'telusko',
-        'HOST': 'localhost'
+        'NAME': 'blog_db_ufig',
+        'USER' :'blog_db_ufig_user',
+        'PASSWORD': 'PrEMcKlRr0VA55wD6abnmNxFcexQbGG4',
+        'HOST': 'dpg-cptbqc6ehbks73f2otf0-a.oregon-postgres.render.com'
     }
 }
+
 
 
 # Password validation
