@@ -25,7 +25,7 @@ def register(request):
             username = form.cleaned_data.get('username')
             email = form.cleaned_data.get('email')
             
-            htmly = get_template('email.html')
+            htmly = get_template('Email.html')
             context = {'username': username}
             subject, from_email, to = 'Welcome', 'your_email@gmail.com', email
             html_content = htmly.render(context)
