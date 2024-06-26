@@ -57,7 +57,7 @@ def Login(request):
             messages.error(request, 'Invalid username or password.')
     else:
         form = AuthenticationForm()
-    return render(request, 'login.html', {'form': form, 'title': 'Log in'})
+    return render(request, 'Login.html', {'form': form, 'title': 'Log in'})
 
 
 def home(request):
